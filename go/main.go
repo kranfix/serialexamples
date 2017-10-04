@@ -24,7 +24,7 @@ func main() {
   // Reading process
   go func() {
     buf := make([]byte, 4)
-    for {
+    for isReading {
       n, err := s.Read(buf)
       if err == nil {
         //fmt.Printf("Rx: %q\n", buf[:n])
@@ -52,7 +52,7 @@ func main() {
       fmt.Println(err)
     }
 
-    led = !led;
+    led = !led
     time.Sleep(2 * time.Second)
   }
 }
